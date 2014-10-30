@@ -36,6 +36,7 @@
     <Compile Include="Arguments\Exceptions\ArgumentNameAlreadyUsedException.cs" />
     <Compile Include="Arguments\ActiveArguments.cs" />
     <Compile Include="Arguments\Exceptions\ArgumentIndexOutOfRangeException.cs" />
+    <Compile Include="Arguments\Exceptions\ArgumentNotFoundException.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

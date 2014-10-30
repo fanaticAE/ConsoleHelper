@@ -16,17 +16,19 @@ namespace Fanaticae.Console.Arguments
 			this.CurrentPosition = currentPosition; 
 		}
 
-		public void moveToNextArg(){
-			if (args.Length > (CurrentPosition + 1))
+		public int moveToNextArg(){
+			if (args.Length > (CurrentPosition + 1)){
 				CurrentPosition++;
-			else
-				throw new ArgumentIndexOutOfRangeException ();  
+				return CurrentPosition;
+			}else
+				throw new ArgumentIndexOutOfRangeException ((CurrentPosition +1).ToString());  
 		}
-		public void moveToPreviousArg(){
-			if (CurrentPosition > 0)
+		public int moveToPreviousArg(){
+			if (CurrentPosition > 0) {
 				CurrentPosition--;
-			else
-				throw new ArgumentIndexOutOfRangeException (); 
+				return CurrentPosition; 
+			}else
+				throw new ArgumentIndexOutOfRangeException ((CurrentPosition -1).ToString()); 
 		}
 
 	}

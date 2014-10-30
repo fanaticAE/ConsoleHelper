@@ -11,8 +11,11 @@ namespace Fanaticae.Console.Arguments
 	
 		Dictionary<string,Argument> arguments = new Dictionary<string, Argument> (); 
 
-		public ArgumentParser ()
+		string[] args; 
+
+		public ArgumentParser (string[] args)
 		{
+			this.args = new ActiveArguments (args); 
 		}
 
 		public ArgumentParser(IEnumerable<Argument> arguments){
@@ -27,11 +30,14 @@ namespace Fanaticae.Console.Arguments
 				throw new ArgumentNameAlreadyUsedException ("The Argument " + argument.ArgumentName + " has already been used"); 
 		}
 
-
-
-
-
-
+		public void parseArguments(int startArgument = 0){
+			ActiveArguments activeArgs = new ActiveArguments (args, startArgument); 
+			for (int x = startArgument; x < this.args.Length; x = activeArgs.moveToNextArg()) {
+				if(this.arguments.ContainsKey(args[x])){
+					this.arguments [activeArgs.CurrentArg].run (activeArgs);
+				}else throw new ArgumentNotFoundException(args[x]); 
+			}
+		}
 	}
 }
 
