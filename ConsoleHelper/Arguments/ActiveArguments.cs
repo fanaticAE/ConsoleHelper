@@ -9,6 +9,8 @@ namespace Fanaticae.Console.Arguments
 
 		public int CurrentPosition{ get; private set; } 
 		public string CurrentArg{ get {return args [CurrentPosition];} }
+		public bool CanMoveNext{ get { return (args.Length > (CurrentPosition +1)); }}
+		public bool IsInRange{ get { return args.Length > CurrentPosition; } }
 
 		public ActiveArguments (string[] args, int currentPosition)
 		{
@@ -17,19 +19,18 @@ namespace Fanaticae.Console.Arguments
 		}
 
 		public int moveToNextArg(){
-			if (args.Length > (CurrentPosition + 1)){
+			if (CanMoveNext) {
 				CurrentPosition++;
 				return CurrentPosition;
-			}else
-				throw new ArgumentIndexOutOfRangeException ((CurrentPosition +1).ToString());  
+			} throw new ArgumentIndexOutOfRangeException ((CurrentPosition +1).ToString()); 
+
 		}
 		public int moveToPreviousArg(){
-			if (CurrentPosition > 0) {
 				CurrentPosition--;
 				return CurrentPosition; 
-			}else
-				throw new ArgumentIndexOutOfRangeException ((CurrentPosition -1).ToString()); 
 		}
+
+
 
 	}
 }

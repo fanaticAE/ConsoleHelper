@@ -31,12 +31,16 @@ namespace Fanaticae.Console.Arguments
 		}
 
 		public void parseArguments(int startArgument = 0){
-			ActiveArguments activeArgs = new ActiveArguments (args, startArgument); 
-			for (int x = startArgument; x < this.args.Length; x = activeArgs.moveToNextArg()) {
-				if(this.arguments.ContainsKey(args[x])){
-					this.arguments [activeArgs.CurrentArg].run (ref activeArgs);
-				}else throw new ArgumentNotFoundException(args[x]); 
+
+			for (int x = startArgument; x < this.args.Length; x++) {
+				ActiveArguments activeArgs = new ActiveArguments (this.args, x); 
+				if (this.arguments.ContainsKey (this.args [x])) {
+					this.arguments [this.args [x]].run (ref activeArgs); 
+					x = activeArgs.CurrentPosition; 
+				}else 
+					throw new ArgumentNotFoundException(args[x]); 
 			}
+
 		}
 	}
 }

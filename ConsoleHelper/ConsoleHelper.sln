@@ -3,19 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleHelper", "ConsoleHelper.csproj", "{F632802E-A1FB-4E9E-8B3D-4CE43A1B655F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{04C5A18A-472E-4D07-BBBA-F785509CA6FA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04C5A18A-472E-4D07-BBBA-F785509CA6FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04C5A18A-472E-4D07-BBBA-F785509CA6FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04C5A18A-472E-4D07-BBBA-F785509CA6FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04C5A18A-472E-4D07-BBBA-F785509CA6FA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F632802E-A1FB-4E9E-8B3D-4CE43A1B655F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F632802E-A1FB-4E9E-8B3D-4CE43A1B655F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F632802E-A1FB-4E9E-8B3D-4CE43A1B655F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F632802E-A1FB-4E9E-8B3D-4CE43A1B655F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = ConsoleHelper.csproj
+		StartupItem = TestProject\TestProject.csproj
 		Policies = $0
 		$0.DotNetNamingPolicy = $1
 		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
