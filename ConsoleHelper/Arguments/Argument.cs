@@ -2,7 +2,7 @@
 
 namespace Fanaticae.Console.Arguments
 {
-	public delegate void ExecuteArgument(ref Argument argument); 
+	public delegate void ExecuteArgument(ref ActiveArguments arguments); 
 
 	public class Argument
 	{
@@ -17,7 +17,7 @@ namespace Fanaticae.Console.Arguments
 			this.execute = Execute; 
 		}
 
-		public int run(ref ActiveArguments arguments){
+		public void run(ref ActiveArguments arguments){
 			this.execute (ref arguments); 
 		}
 

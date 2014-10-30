@@ -15,7 +15,7 @@ namespace Fanaticae.Console.Arguments
 
 		public ArgumentParser (string[] args)
 		{
-			this.args = new ActiveArguments (args); 
+			this.args = args; 
 		}
 
 		public ArgumentParser(IEnumerable<Argument> arguments){
@@ -34,7 +34,7 @@ namespace Fanaticae.Console.Arguments
 			ActiveArguments activeArgs = new ActiveArguments (args, startArgument); 
 			for (int x = startArgument; x < this.args.Length; x = activeArgs.moveToNextArg()) {
 				if(this.arguments.ContainsKey(args[x])){
-					this.arguments [activeArgs.CurrentArg].run (activeArgs);
+					this.arguments [activeArgs.CurrentArg].run (ref activeArgs);
 				}else throw new ArgumentNotFoundException(args[x]); 
 			}
 		}
