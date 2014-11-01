@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections; 
 using System.Collections.Generic; 
-using Fanaticae.Console.Arguments.Exceptions; 
+using Fanaticae.ConsoleHelper.Arguments.Exceptions; 
 
 
-namespace Fanaticae.Console.Arguments
+namespace Fanaticae.ConsoleHelper.Arguments
 {
 	public class ArgumentParser
 	{

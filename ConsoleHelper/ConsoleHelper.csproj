@@ -37,10 +37,13 @@
     <Compile Include="Arguments\ActiveArguments.cs" />
     <Compile Include="Arguments\Exceptions\ArgumentIndexOutOfRangeException.cs" />
     <Compile Include="Arguments\Exceptions\ArgumentNotFoundException.cs" />
+    <Compile Include="CHelper.cs" />
+    <Compile Include="Exceptions\EditorNotSetException.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Arguments\" />
     <Folder Include="Arguments\Exceptions\" />
+    <Folder Include="Exceptions\" />
   </ItemGroup>
 </Project>

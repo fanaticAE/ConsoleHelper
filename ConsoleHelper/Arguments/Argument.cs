@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Fanaticae.Console.Arguments
+namespace Fanaticae.ConsoleHelper.Arguments
 {
 	public delegate void ExecuteArgument(ref ActiveArguments arguments); 
 

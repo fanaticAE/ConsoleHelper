@@ -1,7 +1,7 @@
 ﻿using System;
-using Fanaticae.Console.Arguments.Exceptions;
+using Fanaticae.ConsoleHelper.Arguments.Exceptions;
 
-namespace Fanaticae.Console.Arguments
+namespace Fanaticae.ConsoleHelper.Arguments
 {
 	public class ActiveArguments
 	{

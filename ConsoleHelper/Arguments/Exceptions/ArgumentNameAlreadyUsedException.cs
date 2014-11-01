@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Fanaticae.Console.Arguments.Exceptions
+namespace Fanaticae.ConsoleHelper.Arguments.Exceptions
 {
 	public class ArgumentNameAlreadyUsedException:Exception
 	{
