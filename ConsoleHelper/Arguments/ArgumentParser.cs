@@ -11,16 +11,18 @@ namespace Fanaticae.ConsoleHelper.Arguments
 	
 		Dictionary<string,Argument> arguments = new Dictionary<string, Argument> (); 
 
-		string[] args; 
-
-		public ArgumentParser (string[] args)
-		{
-			this.args = args; 
+		public ArgumentParser(){
+		 
 		}
 
 		public ArgumentParser(IEnumerable<Argument> arguments){
+			addArguments (arguments); 
+		}
+
+		public void addArguments(IEnumerable<Argument> arguments){
 			foreach (Argument a in arguments)
-				addArgument (a); 
+				addArgument (a);
+
 		}
 
 		public void addArgument(Argument argument){
@@ -30,12 +32,18 @@ namespace Fanaticae.ConsoleHelper.Arguments
 				throw new ArgumentNameAlreadyUsedException ("The Argument " + argument.ArgumentName + " has already been used"); 
 		}
 
-		public void parseArguments(int startArgument = 0){
+		public void removeArgument(string key){
+			if (this.arguments.ContainsKey (key))
+				this.arguments.Remove (key); 
 
-			for (int x = startArgument; x < this.args.Length; x++) {
-				ActiveArguments activeArgs = new ActiveArguments (this.args, x); 
-				if (this.arguments.ContainsKey (this.args [x])) {
-					this.arguments [this.args [x]].run (ref activeArgs); 
+		}
+
+		public void parseArguments(string[] args, int startArgument = 0){
+
+			for (int x = startArgument; x < args.Length; x++) {
+				ActiveArguments activeArgs = new ActiveArguments (args, x); 
+				if (this.arguments.ContainsKey (args [x])) {
+					this.arguments [args [x]].run (ref activeArgs); 
 					x = activeArgs.CurrentPosition; 
 				}else 
 					throw new ArgumentNotFoundException(args[x]); 

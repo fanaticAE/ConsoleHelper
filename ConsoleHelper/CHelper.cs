@@ -19,7 +19,7 @@ namespace Fanaticae.ConsoleHelper
 
 	public class CHelper
 	{
-
+		#region read
 		public static string ExternalReadString(string currentValue, bool guessEditor = true){
 			string file = Path.GetTempFileName (); 
 			string editor = Environment.GetEnvironmentVariable ("EDITOR"); 
@@ -112,7 +112,21 @@ namespace Fanaticae.ConsoleHelper
 			} while (!isRead);
 			return result;
 		}
-	
+		#endregion
+
+		#region write
+
+		public static void WriteTitledParagraph(string title, string content, char seperator = '='){
+			Console.Clear (); 
+			Console.WriteLine (title);
+			for(int i = 0; i<Console.BufferWidth; i++)Console.Write (seperator);
+			Console.Write (Environment.NewLine); 
+			Console.WriteLine (content); 
+		}
+
+
+
+		#endregion
 	
 	}
 }

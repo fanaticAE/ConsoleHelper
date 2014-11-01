@@ -12,7 +12,7 @@ namespace TestProject
 			Console.WriteLine (CHelper.PromptReadBool ("Enter a bool(F(alse),t(rue),y(es),n(o))")); 
 			Console.WriteLine (CHelper.PromptReadInteger ("Enter an int[0]:")); 
 			Console.WriteLine (CHelper.PromptReadDouble ("Enter an double[0]:")); 
-
+			CHelper.WriteTitledParagraph ("Hello", "Lorem Ipsum"); 
 
 
 //
