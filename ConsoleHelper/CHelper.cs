@@ -90,7 +90,7 @@ namespace Fanaticae.ConsoleHelper
 			} while (!isRead);
 			return result;
 		}
-		public static double PromptReadString(string prompt, bool useDefault = true, double defaultValue = 0, string doubleRegexPattern = DefaultRegexPatterns.Doub){
+		public static double PromptReadDouble(string prompt, bool useDefault = true, double defaultValue = 0, string doubleRegexPattern = DefaultRegexPatterns.Doub){
 			bool isRead = false; 
 			double result = 0; 
 			Regex doubleRegex = new Regex (doubleRegexPattern); 
