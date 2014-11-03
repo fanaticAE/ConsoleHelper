@@ -11,7 +11,7 @@ namespace Fanaticae.ConsoleHelper
 		public const string FalseNo = @"(^[f](alse)?$)|(^[n](o)?$)"; 
 		public const string Integ = @"^\-?[0-9]{1,}$";
 		public const string Doub= @"^\-?[0-9]{1,}([.][0-9]{1,})?$";
-
+		public const string Strin = "^.{1,}$"; 
 
 	}
 
@@ -112,6 +112,28 @@ namespace Fanaticae.ConsoleHelper
 			} while (!isRead);
 			return result;
 		}
+		public static string PromptReadDouble(string prompt, bool useDefault = true, string defaultValue = "", string stringRegexPattern = DefaultRegexPatterns.Strin){
+			bool isRead = false; 
+			string result = ""; 
+			Regex stringRegex = new Regex (stringRegexPattern); 
+			do {
+				Console.Write(prompt); 
+				string res = Console.ReadLine().Trim(); 
+				if(useDefault&&String.IsNullOrEmpty(res)){
+					isRead = true; 
+					result = defaultValue; 
+				}
+				else if(stringRegex.IsMatch(res)){
+					isRead = true; 
+					result = res; 
+				}
+			} while (!isRead);
+			return result;
+		}
+
+
+
+
 		#endregion
 
 		#region write
