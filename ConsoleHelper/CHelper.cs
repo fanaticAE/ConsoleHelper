@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO; 
+using System.Collections.Generic; 
 using System.Diagnostics; 
 using System.Text.RegularExpressions; 
 using Fanaticae.ConsoleHelper.Exceptions; 
@@ -130,8 +131,18 @@ namespace Fanaticae.ConsoleHelper
 			} while (!isRead);
 			return result;
 		}
+		//http://stackoverflow.com/questions/3404421/password-masking-console-application
+		public static string PrompReadPasswordUnixStyle(string prompt,bool recheck= false,string recheckPrompt =""){
+			bool isRead = false; 
+			Stack<ConsoleKey> passwdEnterd = new Stack<ConsoleKey>(); 
 
+			while(!isRead){
+				Console.Write(prompt)
 
+				0
+
+			}
+		}
 
 
 		#endregion
