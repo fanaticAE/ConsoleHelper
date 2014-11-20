@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic; 
 using System.Diagnostics; 
 using System.Text.RegularExpressions; 
+using System.Linq; 
 using Fanaticae.ConsoleHelper.Exceptions; 
 
 namespace Fanaticae.ConsoleHelper
@@ -13,7 +14,6 @@ namespace Fanaticae.ConsoleHelper
 		public const string Integ = @"^\-?[0-9]{1,}$";
 		public const string Doub= @"^\-?[0-9]{1,}([.][0-9]{1,})?$";
 		public const string Strin = "^.{1,}$"; 
-
 	}
 
 
@@ -134,15 +134,38 @@ namespace Fanaticae.ConsoleHelper
 		//http://stackoverflow.com/questions/3404421/password-masking-console-application
 		public static string PrompReadPasswordUnixStyle(string prompt,bool recheck= false,string recheckPrompt =""){
 			bool isRead = false; 
-			Stack<ConsoleKey> passwdEnterd = new Stack<ConsoleKey>(); 
+			string password = ""; 
+			Console.Write (prompt);
+			do {
+				password = readPassword();
+				if(recheck){
+					Console.Write(recheckPrompt); 
+					isRead = String.Compare(password,readPassword()) == 0; 
+				} else isRead = true; 
+			} while(!isRead); 
 
-			while(!isRead){
-				Console.Write(prompt)
-
-				0
-
-			}
+			return password; 
 		}
+
+		private static string readPassword(){
+			Stack<char> passwdEnterd = new Stack<char>(); 
+			ConsoleKeyInfo readKey;  
+			while((readKey = Console.ReadKey(true)).Key != ConsoleKey.Enter){
+				switch (readKey.Key) {
+
+					case ConsoleKey.Backspace:
+						if (passwdEnterd.Count > 0)
+							passwdEnterd.Pop (); 
+						break; 
+					default:
+						if((int)readKey.KeyChar != 0)
+							passwdEnterd.Push (readKey.KeyChar); 
+						break; 
+				}
+			}
+			return new string (passwdEnterd.Reverse ().ToArray ()); 
+		}
+
 
 
 		#endregion
